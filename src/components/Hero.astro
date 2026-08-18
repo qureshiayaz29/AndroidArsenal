@@ -4,16 +4,31 @@
     <h1 class="hero__title">Android Arsenal</h1>
     <p class="hero__tagline">Should we build it?</p>
     <div class="hero__actions" role="group" aria-label="Quick vote">
-      <a href="#vote?vote=yes" class="btn btn--yes" data-vote="yes">
+      <a href="#vote" class="btn btn--yes" data-vote="yes">
         Yes, build it
       </a>
-      <a href="#vote?vote=no" class="btn btn--no" data-vote="no">
+      <a href="#vote" class="btn btn--no" data-vote="no">
         Not for me
       </a>
     </div>
     <p class="hero__note">We're letting Android developers decide.</p>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('[data-vote]').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      const vote = btn.getAttribute('data-vote');
+      const formSection = document.getElementById('vote');
+      if (!vote || !formSection) return;
+
+      history.replaceState(null, '', `#vote?vote=${vote}`);
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+    });
+  });
+</script>
 
 <style>
   .hero {
@@ -48,22 +63,6 @@
     color: var(--accent);
     font-weight: 600;
     margin: 0 0 1.25rem;
-  }
-
-  .hero__prompt {
-    margin: 0 auto 0.75rem;
-    font-size: 1.125rem;
-  }
-
-  .hero__decide {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    margin: 0 0 2rem;
-    padding: 0.5rem 1rem;
-    display: inline-block;
-    background: var(--accent-muted);
-    border-radius: 999px;
-    color: var(--accent);
   }
 
   .hero__actions {
