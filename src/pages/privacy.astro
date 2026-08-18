@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../config/site';
+---
+
+<Layout
+  title={`Privacy — ${site.name}`}
+  description="Privacy policy for Android Arsenal validation landing page."
+>
+  <main class="privacy">
+    <article class="container privacy__content">
+      <h1>Privacy</h1>
+      <p class="privacy__updated">Last updated: August 2026</p>
+
+      <p>
+        This page explains how we handle information when you visit {site.url} and
+        submit feedback through our form.
+      </p>
+
+      <h2>What we collect</h2>
+      <p>When you submit the feedback form, we may collect:</p>
+      <ul>
+        <li>Your vote (yes, maybe, or no)</li>
+        <li>Your comment (optional)</li>
+        <li>Your email address (optional)</li>
+        <li>Technical data such as referrer URL and UTM campaign parameters</li>
+      </ul>
+
+      <h2>How we use it</h2>
+      <p>
+        We use this information solely to understand whether Android developers
+        want Android Arsenal to exist, and to inform product decisions. If you
+        provide an email, we may contact you about Android Arsenal updates.
+      </p>
+
+      <h2>What we don't do</h2>
+      <ul>
+        <li>We do not sell or share your email with third parties.</li>
+        <li>We do not display your comments publicly.</li>
+        <li>We do not use tracking cookies for advertising.</li>
+      </ul>
+
+      <h2>Analytics</h2>
+      <p>
+        We use Cloudflare Web Analytics to understand page traffic. This service
+        is privacy-focused and does not use cookies to track individual visitors.
+      </p>
+
+      <h2>Form provider</h2>
+      <p>
+        Form submissions are processed by Tally and stored in Google Sheets for
+        analysis. Please refer to
+        <a href="https://tally.so/help/privacy-policy" target="_blank" rel="noopener noreferrer">Tally's privacy policy</a>
+        for details on their data handling.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy? Reach out via the form on our
+        <a href="/">homepage</a>.
+      </p>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .privacy {
+    padding-block: 4rem 2rem;
+  }
+
+  .privacy__content h1 {
+    font-size: 2rem;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .privacy__updated {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin: 0 0 2rem;
+  }
+
+  .privacy__content h2 {
+    font-size: 1.25rem;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .privacy__content p,
+  .privacy__content li {
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .privacy__content ul {
+    padding-left: 1.25rem;
+  }
+</style>

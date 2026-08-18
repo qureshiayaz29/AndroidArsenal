@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://androidarsenal.com/sitemap-index.xml

@@ -1,0 +1,104 @@
+---
+import { site, shareLinks, shareUrl } from '../config/site';
+
+interface Props {
+  heading?: string;
+  subtext?: string;
+  compact?: boolean;
+}
+
+const {
+  heading = 'Share Android Arsenal',
+  subtext = 'Know an Android developer? Send this to them.',
+  compact = false,
+} = Astro.props;
+
+const shareText = `${site.name} — ${site.tagline} A modern home for Android developers.`;
+
+const links = [
+  { id: 'whatsapp', label: 'WhatsApp', href: shareLinks.whatsapp(`${shareText} ${shareUrl('whatsapp', 'referral')}`) },
+  { id: 'x', label: 'X', href: shareLinks.x(shareText, shareUrl('x')) },
+  { id: 'linkedin', label: 'LinkedIn', href: shareLinks.linkedin(shareUrl('linkedin')) },
+] as const;
+
+const copyUrl = shareUrl('copy');
+---
+
+<div class:list={['share', compact && 'share--compact']}>
+  <h2 class="share__heading">{heading}</h2>
+  {subtext && <p class="share__subtext">{subtext}</p>}
+  <div class="share__actions" role="group" aria-label="Share links">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class="btn btn--share"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-share={link.id}
+      >
+        {link.label}
+      </a>
+    ))}
+    <button type="button" class="btn btn--share" id="copy-link-btn" data-url={copyUrl}>
+      Copy link
+    </button>
+  </div>
+  <p class="share__status sr-only" id="copy-status" role="status" aria-live="polite" />
+</div>
+
+<script>
+  const btn = document.getElementById('copy-link-btn');
+  const status = document.getElementById('copy-status');
+
+  btn?.addEventListener('click', async () => {
+    const url = btn.getAttribute('data-url');
+    if (!url) return;
+
+    try {
+      await navigator.clipboard.writeText(url);
+      if (status) {
+        status.textContent = 'Link copied to clipboard.';
+        status.classList.remove('sr-only');
+        setTimeout(() => {
+          status.textContent = '';
+          status.classList.add('sr-only');
+        }, 3000);
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'Could not copy. Please copy the URL from the address bar.';
+        status.classList.remove('sr-only');
+      }
+    }
+  });
+</script>
+
+<style>
+  .share {
+    text-align: center;
+  }
+
+  .share__heading {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .share__subtext {
+    color: var(--text-muted);
+    margin: 0 0 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .share__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    justify-content: center;
+  }
+
+  .share--compact .share__heading {
+    font-size: 1.125rem;
+  }
+</style>

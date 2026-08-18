@@ -1,0 +1,82 @@
+<section class="hero" id="top">
+  <div class="container hero__inner">
+    <p class="hero__badge" aria-hidden="true">androidarsenal.com</p>
+    <h1 class="hero__title">Android Arsenal</h1>
+    <p class="hero__tagline">Should we build it?</p>
+    <div class="hero__actions" role="group" aria-label="Quick vote">
+      <a href="#vote?vote=yes" class="btn btn--yes" data-vote="yes">
+        Yes, build it
+      </a>
+      <a href="#vote?vote=no" class="btn btn--no" data-vote="no">
+        Not for me
+      </a>
+    </div>
+    <p class="hero__note">We're letting Android developers decide.</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 12vh, 6rem) 3rem;
+    min-height: min(100dvh, 900px);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero__inner {
+    text-align: center;
+  }
+
+  .hero__badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin: 0 0 1.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero__title {
+    font-size: clamp(2.5rem, 8vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: 0 0 0.5rem;
+  }
+
+  .hero__tagline {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 1.25rem;
+  }
+
+  .hero__prompt {
+    margin: 0 auto 0.75rem;
+    font-size: 1.125rem;
+  }
+
+  .hero__decide {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    margin: 0 0 2rem;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    background: var(--accent-muted);
+    border-radius: 999px;
+    color: var(--accent);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero__note {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+</style>

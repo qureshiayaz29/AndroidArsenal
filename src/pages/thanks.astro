@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SocialShare from '../components/SocialShare.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../config/site';
+---
+
+<Layout
+  title={`Thank you — ${site.name}`}
+  description="You're officially part of the decision. Help spread the word about Android Arsenal."
+  noindex={true}
+>
+  <main class="thanks">
+    <div class="container thanks__inner">
+      <p class="thanks__badge" aria-hidden="true">Response recorded</p>
+      <h1 class="thanks__title">You're officially part of the decision.</h1>
+      <p class="thanks__lead">
+        We'll use the community response to decide what happens next.
+      </p>
+      <SocialShare />
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .thanks {
+    min-height: 80dvh;
+    display: flex;
+    align-items: center;
+    padding-block: 4rem;
+  }
+
+  .thanks__inner {
+    text-align: center;
+  }
+
+  .thanks__badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin: 0 0 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .thanks__title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+  }
+
+  .thanks__lead {
+    color: var(--text-muted);
+    max-width: 36ch;
+    margin: 0 auto 3rem;
+    font-size: 1.0625rem;
+  }
+</style>
