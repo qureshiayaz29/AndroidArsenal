@@ -1,19 +1,27 @@
-<section class="hero" id="top">
-  <div class="container hero__inner">
-    <p class="hero__badge" aria-hidden="true">androidarsenal.com</p>
-    <h1 class="hero__title">Android Arsenal</h1>
-    <p class="hero__tagline">Should we build it?</p>
-    <div class="hero__actions" role="group" aria-label="Quick vote">
-      <a href="#vote" class="btn btn--yes" data-vote="yes">
-        Yes, build it
-      </a>
-      <a href="#vote" class="btn btn--no" data-vote="no">
-        Not for me
-      </a>
+<header class="hero" id="top">
+  <div class="hero__banner">
+    <div class="hero__logo" aria-hidden="true">
+      <span class="hero__logo-mark">AA</span>
     </div>
-    <p class="hero__note">We're letting Android developers decide.</p>
+    <div class="hero__titles">
+      <p class="hero__url">
+        <!-- <a href="https://androidarsenal.com">androidarsenal.com</a> -->
+        <span class="badge-new">Poll</span>
+      </p>
+      <h1 class="hero__title">Android Arsenal</h1>
+      <p class="hero__tagline">Should we build it?</p>
+    </div>
   </div>
-</section>
+
+  <p class="hero__prompt">Would you use it?</p>
+
+  <div class="hero__actions" role="group" aria-label="Quick vote">
+    <a href="#vote" class="btn btn--yes" data-vote="yes">Yes, build it</a>
+    <a href="#vote" class="btn btn--no" data-vote="no">Not for me</a>
+  </div>
+
+  <p class="hero__note">We're letting Android developers decide.</p>
+</header>
 
 <script>
   document.querySelectorAll<HTMLAnchorElement>('[data-vote]').forEach((btn) => {
@@ -32,50 +40,88 @@
 
 <style>
   .hero {
-    padding-block: clamp(3rem, 12vh, 6rem) 3rem;
-    min-height: min(100dvh, 900px);
+    padding: 1.25rem 1.5rem 1.5rem;
+    background: linear-gradient(180deg, #333333 0%, #2d2d2d 100%);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .hero__banner {
     display: flex;
     align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
   }
 
-  .hero__inner {
-    text-align: center;
+  .hero__logo {
+    flex-shrink: 0;
   }
 
-  .hero__badge {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+  .hero__logo-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(180deg, var(--android-green) 0%, var(--android-green-dark) 100%);
+    border: 1px solid var(--android-green-dark);
+    border-radius: var(--radius);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.35) inset,
+      1px 1px 3px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .hero__titles {
+    min-width: 0;
+  }
+
+  .hero__url {
+    margin: 0 0 0.25rem;
+    font-size: 0.6875rem;
     color: var(--text-muted);
-    margin: 0 0 1.5rem;
-    letter-spacing: 0.04em;
+  }
+
+  .hero__url a {
+    font-size: 0.6875rem;
   }
 
   .hero__title {
-    font-size: clamp(2.5rem, 8vw, 3.75rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    margin: 0 0 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--text);
   }
 
   .hero__tagline {
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
-    color: var(--accent);
-    font-weight: 600;
-    margin: 0 0 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--android-green-bright);
+    font-weight: 700;
+    margin: 0.125rem 0 0;
+  }
+
+  .hero__prompt {
+    margin: 0 0 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 700;
   }
 
   .hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-    margin-bottom: 1.25rem;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .hero__note {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     margin: 0;
+    font-style: italic;
   }
 </style>

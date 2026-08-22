@@ -6,9 +6,12 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
-  <main>
-    <Hero />
-    <VoteSection />
-  </main>
-  <Footer />
+  <div class="site-shell">
+    <main class="site-box">
+      <Hero />
+      <hr class="divider" />
+      <VoteSection />
+    </main>
+    <Footer />
+  </div>
 </Layout>

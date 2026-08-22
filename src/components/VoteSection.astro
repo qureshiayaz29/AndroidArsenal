@@ -6,7 +6,7 @@ const hasForm = Boolean(tallyFormId);
 ---
 
 <section class="section vote" id="vote" aria-labelledby="vote-heading">
-  <div class="container container--wide">
+  <div class="container--wide">
     <p class="section__label">Tell us</p>
     <h2 class="section__title" id="vote-heading">
       What should Android Arsenal be?
@@ -15,27 +15,31 @@ const hasForm = Boolean(tallyFormId);
       Vote and tell us what you'd want from it. Your email is optional.
     </p>
 
-    {hasForm ? (
-      <div class="vote__embed" id="tally-embed-container">
-        <iframe
-          data-tally-src={`https://tally.so/embed/${tallyFormId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
-          loading="lazy"
-          width="100%"
-          height="400"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Android Arsenal feedback form"
-        />
-      </div>
-    ) : (
-      <div class="tally-placeholder">
-        <p>
-          Tally form not configured yet.<br />
-          Set <code>PUBLIC_TALLY_FORM_ID</code> in your environment.
-        </p>
-      </div>
-    )}
+    <fieldset class="retro-fieldset">
+      <legend>Your feedback</legend>
+
+      {hasForm ? (
+        <div class="vote__embed" id="tally-embed-container">
+          <iframe
+            data-tally-src={`https://tally.so/embed/${tallyFormId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+            loading="lazy"
+            width="100%"
+            height="400"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Android Arsenal feedback form"
+          />
+        </div>
+      ) : (
+        <div class="tally-placeholder">
+          <p>
+            Tally form not configured yet.<br />
+            Set <code>PUBLIC_TALLY_FORM_ID</code> in your environment.
+          </p>
+        </div>
+      )}
+    </fieldset>
   </div>
 </section>
 
@@ -102,12 +106,13 @@ const hasForm = Boolean(tallyFormId);
 
 <style>
   .vote {
-    scroll-margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem 1.5rem;
+    scroll-margin-top: 0.5rem;
   }
 
   .vote__embed {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius);
     overflow: hidden;
     min-height: 400px;

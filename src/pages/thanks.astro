@@ -10,52 +10,60 @@ import { site } from '../config/site';
   description="You're officially part of the decision. Help spread the word about Android Arsenal."
   noindex={true}
 >
-  <main class="thanks">
-    <div class="container thanks__inner">
-      <p class="thanks__badge" aria-hidden="true">Response recorded</p>
-      <h1 class="thanks__title">You're officially part of the decision.</h1>
-      <p class="thanks__lead">
-        We'll use the community response to decide what happens next.
-      </p>
-      <SocialShare />
-    </div>
-  </main>
-  <Footer />
+  <div class="site-shell">
+    <main class="site-box">
+      <div class="thanks">
+        <p class="thanks__badge">Response recorded</p>
+        <h1 class="thanks__title">Thank you!</h1>
+        <p class="thanks__lead">
+          You're officially part of the decision. We'll use the community response
+          to decide what happens next.
+        </p>
+        <SocialShare />
+        <p class="thanks__back">
+          <a href="/">&larr; Back to homepage</a>
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>
 
 <style>
   .thanks {
-    min-height: 80dvh;
-    display: flex;
-    align-items: center;
-    padding-block: 4rem;
-  }
-
-  .thanks__inner {
-    text-align: center;
+    padding: 1.5rem;
   }
 
   .thanks__badge {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
-    margin: 0 0 1rem;
-    letter-spacing: 0.06em;
+    display: inline-block;
+    margin: 0 0 0.75rem;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
     text-transform: uppercase;
+    color: var(--android-green-bright);
+    background: rgba(61, 220, 132, 0.12);
+    border: 1px solid var(--android-green-dark);
+    border-radius: 3px;
   }
 
   .thanks__title {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
-    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--text);
   }
 
   .thanks__lead {
     color: var(--text-muted);
-    max-width: 36ch;
-    margin: 0 auto 3rem;
-    font-size: 1.0625rem;
+    margin: 0 0 1.25rem;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
+
+  .thanks__back {
+    margin: 1.25rem 0 0;
+    font-size: 0.8125rem;
   }
 </style>
